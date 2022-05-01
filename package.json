@@ -1,8 +1,8 @@
 {
   "name": "netflix-admin-panel",
   "version": "0.1.0",
-  "homepage": ".",
-  "private": false,
+  "homepage": "",
+  "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.29",
