@@ -4,7 +4,6 @@ import {
   Timeline,
   TrendingUp,
   PermIdentity,
-  AttachMoney,
   BarChart,
   MailOutline,
   DynamicFeed,

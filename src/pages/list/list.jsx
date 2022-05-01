@@ -1,5 +1,4 @@
 import { Link, useLocation } from "react-router-dom";
-import { Publish } from "@material-ui/icons";
 import "./list.css";
 
 export default function List() {
