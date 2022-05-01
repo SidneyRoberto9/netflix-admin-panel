@@ -175,7 +175,11 @@ export default function NewProduct() {
           Upload
         </button>
 
-        <button className="addProductButton" onClick={handleSubmit}>
+        <button
+          className="addProductButton"
+          onClick={handleSubmit}
+          disabled={uploaded < 5}
+        >
           Create
         </button>
       </form>
