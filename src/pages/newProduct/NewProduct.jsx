@@ -170,15 +170,14 @@ export default function NewProduct() {
             onChange={(e) => setVideo(e.target.files[0])}
           />
         </div>
-        {uploaded === 5 ? (
-          <button className="addProductButton" onClick={handleSubmit}>
-            Create
-          </button>
-        ) : (
-          <button className="addProductButton" onClick={handleUpload}>
-            Upload
-          </button>
-        )}
+
+        <button className="addProductButton" onClick={handleUpload}>
+          Upload
+        </button>
+
+        <button className="addProductButton" onClick={handleSubmit}>
+          Create
+        </button>
       </form>
     </div>
   );
