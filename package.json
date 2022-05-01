@@ -1,7 +1,7 @@
 {
   "name": "netflix-admin-panel",
   "version": "0.1.0",
-  "homepage": "",
+  "homepage": "https://admin-panel-netflix.netlify.app/",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
