@@ -18,11 +18,11 @@ export default function ProductList() {
   };
 
   const columns = [
-    { field: "_id", headerName: "ID", width: 90 },
+    { field: "_id", headerName: "ID", width: 250 },
     {
       field: "movie",
       headerName: "Movie",
-      width: 200,
+      width: 350,
       renderCell: (params) => {
         return (
           <div className="productListItem">
