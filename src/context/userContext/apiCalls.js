@@ -9,7 +9,7 @@ import {
   updateUserStart,
   updateUserSuccess,
   updateUserFailure,
-} from "./MovieActions";
+} from "./UserActions";
 
 export const getUsers = async (dispatch) => {
   dispatch(getUsersStart());
@@ -28,7 +28,7 @@ export const getUsers = async (dispatch) => {
 export const deleteUser = async (id, dispatch) => {
   dispatch(deleteUserStart());
   try {
-    await api.delete("/movies/" + id, {
+    await api.delete("/users/" + id, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -42,7 +42,7 @@ export const deleteUser = async (id, dispatch) => {
 export const updateMovie = async (user, dispatch) => {
   dispatch(updateUserStart());
   try {
-    const res = await api.put("/movies/" + user._id, user, {
+    const res = await api.put("/users/" + user._id, user, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
