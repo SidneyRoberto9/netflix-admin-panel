@@ -1,6 +1,7 @@
 import { MovieContextProvider } from "./context/movieContext/MovieContext";
 import { AuthContextProvider } from "./context/authContext/AuthContext";
 import { ListContextProvider } from "./context/listContext/ListContext";
+import { UserContextProvider } from "./context/userContext/UserContext";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
@@ -10,7 +11,9 @@ ReactDOM.render(
     <AuthContextProvider>
       <MovieContextProvider>
         <ListContextProvider>
-          <App />
+          <UserContextProvider>
+            <App />
+          </UserContextProvider>
         </ListContextProvider>
       </MovieContextProvider>
     </AuthContextProvider>
