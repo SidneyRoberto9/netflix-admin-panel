@@ -1,4 +1,3 @@
-import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
@@ -52,7 +51,6 @@ export default function Home() {
 
   return (
     <div className="home">
-      <FeaturedInfo />
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
