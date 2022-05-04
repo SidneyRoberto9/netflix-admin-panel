@@ -35,7 +35,14 @@ export default function ProductList() {
     { field: "genre", headerName: "Genre", width: 120 },
     { field: "year", headerName: "Year", width: 120 },
     { field: "limit", headerName: "Limit", width: 120 },
-    { field: "isSeries", headerName: "IsSeries", width: 120 },
+    {
+      field: "isSeries",
+      headerName: "Type",
+      width: 130,
+      renderCell: (params) => {
+        return params.value ? "Serie" : "Movie";
+      },
+    },
     {
       field: "action",
       headerName: "Action",
