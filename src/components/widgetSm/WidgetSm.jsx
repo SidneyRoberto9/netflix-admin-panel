@@ -1,5 +1,6 @@
 import { Visibility } from "@material-ui/icons";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../../services/api";
 import "./widgetSm.css";
 
@@ -28,15 +29,21 @@ export default function WidgetSm() {
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
         {newUsers.map((user) => (
-          <li className="widgetSmListItem" key={user._id}>
+          <li className="widgetSmListItem" key={user._id} state={user}>
             <img src={user.profilePic} alt="" className="widgetSmImg" />
             <div className="widgetSmUser">
               <span className="widgetSmUsername">{user.username}</span>
             </div>
-            <button className="widgetSmButton">
-              <Visibility className="widgetSmIcon" />
-              Display
-            </button>
+            <Link
+              to={{ pathname: "/user/" + user._id, user: user }}
+              key={user._id}
+              className="link"
+            >
+              <button className="widgetSmButton">
+                <Visibility className="widgetSmIcon" />
+                Display
+              </button>
+            </Link>
           </li>
         ))}
       </ul>
