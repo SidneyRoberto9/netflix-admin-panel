@@ -1,14 +1,9 @@
-import React, { useContext } from "react";
-import "./topbar.css";
-import {
-  NotificationsNone,
-  Language,
-  Settings,
-  ExitToApp,
-} from "@material-ui/icons";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthActions";
+import { Settings } from "@material-ui/icons";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import "./topbar.css";
 
 export default function Topbar() {
   const { dispatch } = useContext(AuthContext);
@@ -27,7 +22,7 @@ export default function Topbar() {
                 <Settings />
               </button>
               <div class="dropdown-content">
-                <a>
+                <a href="/login">
                   <Link to="/login" onClick={() => dispatch(logout())}>
                     <span>logout</span>
                   </Link>
