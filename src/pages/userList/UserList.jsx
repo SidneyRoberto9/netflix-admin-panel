@@ -19,7 +19,19 @@ export default function UserList() {
 
   const columns = [
     { field: "_id", headerName: "ID", width: 250 },
-    { field: "username", headerName: "UserName", width: 180 },
+    {
+      field: "user",
+      headerName: "User",
+      width: 250,
+      renderCell: (params) => {
+        return (
+          <div className="userListUser">
+            <img className="userListImg" src={params.row.profilePic} alt="" />
+            {params.row.username}
+          </div>
+        );
+      },
+    },
     { field: "email", headerName: "Email", width: 250 },
     { field: "isAdmin", headerName: "IsAdmin", width: 130 },
     {

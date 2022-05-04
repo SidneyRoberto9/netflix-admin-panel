@@ -4,6 +4,8 @@
   background-color: rgb(251, 251, 255);
   position: sticky;
   top: 50px;
+  width: 10%;
+  min-width: 150px;
 }
 
 .sidebarWrapper {

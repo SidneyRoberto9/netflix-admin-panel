@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./topbar.css";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import {
+  NotificationsNone,
+  Language,
+  Settings,
+  ExitToApp,
+} from "@material-ui/icons";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logout } from "../../context/authContext/AuthActions";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
+  const { dispatch } = useContext(AuthContext);
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -11,21 +22,20 @@ export default function Topbar() {
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
-            <NotificationsNone />
-            <span className="topIconBadge">0</span>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <Settings />
+              </button>
+              <div class="dropdown-content">
+                <a>
+                  <Link to="/login" onClick={() => dispatch(logout())}>
+                    <span>logout</span>
+                  </Link>
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="topbarIconContainer">
-            <Language />
-            <span className="topIconBadge">0</span>
-          </div>
-          <div className="topbarIconContainer">
-            <Settings />
-          </div>
-          <img
-            src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
-            className="topAvatar"
-          />
+          <img src={user.profilePic} alt="" className="topAvatar" />
         </div>
       </div>
     </div>
