@@ -25,6 +25,20 @@ export const getMovies = async (dispatch) => {
   }
 };
 
+export const getMoviesNew = async (dispatch) => {
+  dispatch(getMoviesStart());
+  try {
+    const res = await api.get("/movies?new=true", {
+      headers: {
+        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+      },
+    });
+    dispatch(getMoviesSuccess(res.data));
+  } catch (error) {
+    dispatch(getMoviesFailure());
+  }
+};
+
 export const deleteMovie = async (id, dispatch) => {
   dispatch(deleteMovieStart());
   try {

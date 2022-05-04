@@ -17,16 +17,16 @@ export default function Topbar() {
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
-            <div class="dropdown">
-              <button class="dropbtn">
+            <div className="dropdown">
+              <button className="dropbtn">
                 <Settings />
               </button>
-              <div class="dropdown-content">
-                <a href="/login">
+              <div className="dropdown-content">
+                <span>
                   <Link to="/login" onClick={() => dispatch(logout())}>
-                    <span>logout</span>
+                    logout
                   </Link>
-                </a>
+                </span>
               </div>
             </div>
           </div>
