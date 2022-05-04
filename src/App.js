@@ -27,7 +27,15 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
+        {!user && (
+          <Route path="*">
+            <Redirect to="/login" />
+            <Login />
+          </Route>
+        )}
+        <Route path="/login">
+          <Redirect to="/" />
+        </Route>
         {user && (
           <>
             <Topbar />
@@ -67,6 +75,10 @@ function App() {
                 <NewList />
               </Route>
             </div>
+
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
           </>
         )}
       </Switch>
