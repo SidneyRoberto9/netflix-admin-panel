@@ -1,10 +1,10 @@
-import { MovieContext } from "../../context/movieContext/MovieContext";
-import { ListContext } from "../../context/listContext/ListContext";
-import { getMovies } from "../../context/movieContext/apiCalls";
+import { createList } from "context/listContext/apiCalls";
+import { getMovies } from "context/movieContext/apiCalls";
 import { useContext, useEffect, useState } from "react";
-import "./newList.css";
-import { createList } from "../../context/listContext/apiCalls";
+import { MovieContext } from "context/movieContext";
+import { ListContext } from "context/listContext";
 import { useHistory } from "react-router-dom";
+import "./newList.css";
 
 export default function NewList() {
   const [list, setList] = useState(null);

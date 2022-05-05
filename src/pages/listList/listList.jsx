@@ -1,6 +1,6 @@
-import { deleteList, getLists } from "../../context/listContext/apiCalls";
-import { ListContext } from "../../context/listContext/ListContext";
+import { deleteList, getLists } from "context/listContext/apiCalls";
 import { DeleteOutline } from "@material-ui/icons";
+import { ListContext } from "context/listContext";
 import { DataGrid } from "@material-ui/data-grid";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";

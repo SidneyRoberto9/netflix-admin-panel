@@ -1,5 +1,5 @@
-import { AuthContext } from "../../context/authContext/AuthContext";
-import { logout } from "../../context/authContext/AuthActions";
+import { logout } from "context/authContext/AuthActions";
+import { AuthContext } from "context/authContext";
 import { Settings } from "@material-ui/icons";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";

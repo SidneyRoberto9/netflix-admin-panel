@@ -1,6 +1,6 @@
-import { deleteUser, getUsers } from "../../context/userContext/apiCalls";
-import { UserContext } from "../../context/userContext/UserContext";
+import { deleteUser, getUsers } from "context/userContext/apiCalls";
 import { DeleteOutline } from "@material-ui/icons";
+import { UserContext } from "context/userContext";
 import { DataGrid } from "@material-ui/data-grid";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";

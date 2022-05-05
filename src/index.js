@@ -1,7 +1,7 @@
-import { MovieContextProvider } from "./context/movieContext/MovieContext";
-import { AuthContextProvider } from "./context/authContext/AuthContext";
-import { ListContextProvider } from "./context/listContext/ListContext";
-import { UserContextProvider } from "./context/userContext/UserContext";
+import { MovieContextProvider } from "context/movieContext";
+import { AuthContextProvider } from "context/authContext";
+import { ListContextProvider } from "context/listContext";
+import { UserContextProvider } from "context/userContext";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";

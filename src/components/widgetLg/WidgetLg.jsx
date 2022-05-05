@@ -1,6 +1,6 @@
+import { getMoviesNew } from "context/movieContext/apiCalls";
+import { MovieContext } from "context/movieContext";
 import { useContext, useEffect } from "react";
-import { getMoviesNew } from "../../context/movieContext/apiCalls";
-import { MovieContext } from "../../context/movieContext/MovieContext";
 import "./widgetLg.css";
 
 export default function WidgetLg() {
@@ -12,7 +12,7 @@ export default function WidgetLg() {
 
   return (
     <div className="widgetLg">
-      <h3 className="widgetLgTitle">latest movies added</h3>
+      <h3 className="widgetLgTitle">latest movies adde</h3>
       <table className="widgetLgTable">
         <tbody>
           <tr className="widgetLgTr">

@@ -1,10 +1,10 @@
-import { AuthContext } from "../../context/authContext/AuthContext";
-import { login } from "../../context/authContext/apiCalls";
 import { ToastContainer, toast } from "react-toastify";
+import { toastOptions } from "helpers/toastConfigure";
+import { login } from "context/authContext/apiCalls";
 import React, { useContext, useState } from "react";
+import { AuthContext } from "context/authContext";
 import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
-import { toastOptions } from "../../helpers/toastConfigure";
 
 export default function Login() {
   const [email, setEmail] = useState("");

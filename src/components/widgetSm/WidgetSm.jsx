@@ -1,7 +1,7 @@
 import { Visibility } from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../../services/api";
+import { api } from "services/api";
 import "./widgetSm.css";
 
 export default function WidgetSm() {

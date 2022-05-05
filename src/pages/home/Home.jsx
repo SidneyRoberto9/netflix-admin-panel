@@ -1,8 +1,8 @@
-import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
-import Chart from "../../components/chart/Chart";
-import { api } from "../../services/api";
+import WidgetSm from "components/widgetSm/WidgetSm";
+import WidgetLg from "components/widgetLg/WidgetLg";
+import Chart from "components/chart/Chart";
+import { api } from "services/api";
 import "./home.css";
 
 export default function Home() {

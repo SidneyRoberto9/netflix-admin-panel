@@ -1,4 +1,3 @@
-import "./sidebar.css";
 import {
   LineStyle,
   PermIdentity,
@@ -7,6 +6,7 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import "./sidebar.css";
 
 export default function Sidebar() {
   let initial_state = new Array(13).fill(false);
