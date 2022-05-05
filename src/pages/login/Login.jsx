@@ -1,16 +1,32 @@
-import React, { useContext, useState } from "react";
-import { login } from "../../context/authContext/apiCalls";
 import { AuthContext } from "../../context/authContext/AuthContext";
+import { login } from "../../context/authContext/apiCalls";
+import { ToastContainer, toast } from "react-toastify";
+import React, { useContext, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import "./login.css";
+import { toastOptions } from "../../helpers/toastConfigure";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isFetching, dispatch } = useContext(AuthContext);
+  const { isFetching, dispatch, error } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     login({ email, password }, dispatch);
+    if ((email || password) === "") {
+      toast.warn("Please fill in the fields!!", toastOptions);
+      return;
+    }
+
+    if (error) {
+      toast.warn(
+        "Invalid Email or Password, Please try again...",
+        toastOptions
+      );
+      return;
+    }
   };
 
   return (
@@ -23,7 +39,6 @@ export default function Login() {
             name="login_txt"
             type="text"
             placeholder="Email"
-            autofocus
             onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password:</label>
@@ -45,6 +60,7 @@ export default function Login() {
           </button>
         </div>
       </form>
+      <ToastContainer />
     </div>
   );
 }

@@ -23,7 +23,11 @@ export default function Topbar() {
               </button>
               <div className="dropdown-content">
                 <span>
-                  <Link to="/login" onClick={() => dispatch(logout())}>
+                  <Link
+                    to="/login"
+                    onClick={() => dispatch(logout())}
+                    className="link"
+                  >
                     logout
                   </Link>
                 </span>
