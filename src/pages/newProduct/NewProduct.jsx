@@ -1,6 +1,6 @@
 import { createMovie } from "context/movieContext/apiCalls";
 import { MovieContext } from "context/movieContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import storage from "../../firebase";
 import "./newProduct.css";
 
@@ -39,7 +39,6 @@ export default function NewProduct() {
             setMovie((prev) => {
               return { ...prev, [item.label]: url };
             });
-            setUploaded((prev) => prev + 1);
           });
         }
       );
@@ -61,6 +60,10 @@ export default function NewProduct() {
     e.preventDefault();
     createMovie(movie, dispatch);
   };
+
+  useEffect(() => {
+    setUploaded((prev) => prev + 1);
+  }, [img, imgTitle, imgSm, trailer, video]);
 
   return (
     <div className="newProduct">
@@ -178,7 +181,8 @@ export default function NewProduct() {
         <button
           className="addProductButton"
           onClick={handleSubmit}
-          disabled={uploaded < 5}
+          disabled={uploaded <= 5}
+          style={{ cursor: uploaded <= 5 ? "not-allowed" : "pointer" }}
         >
           Create
         </button>
