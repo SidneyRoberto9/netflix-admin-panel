@@ -58,10 +58,10 @@ function App() {
               <Route path="/movies">
                 <ProductList />
               </Route>
-              <Route path="/product/:productId">
+              <Route path="/movie/:productId">
                 <Product />
               </Route>
-              <Route path="/newproduct">
+              <Route path="/newMovie">
                 <NewProduct />
               </Route>
 
@@ -71,7 +71,7 @@ function App() {
               <Route path="/list/:listId">
                 <List />
               </Route>
-              <Route path="/newlist">
+              <Route path="/newList">
                 <NewList />
               </Route>
             </div>

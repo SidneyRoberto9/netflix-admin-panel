@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import "./newList.css";
 
 export default function NewList() {
-  const [list, setList] = useState(null);
+  const [list, setList] = useState({ type: null });
   const history = useHistory();
 
   const { dispatch } = useContext(ListContext);
@@ -61,7 +61,9 @@ export default function NewList() {
             <select name="type" onChange={handleChange}>
               <option>Type</option>
               <option value="movie">Movie</option>
-              <option value="series">Series</option>
+              <option value="series" selected>
+                Series
+              </option>
             </select>
           </div>
         </div>
@@ -74,11 +76,19 @@ export default function NewList() {
               onChange={handleSelect}
               style={{ height: "280px" }}
             >
-              {movies.map((movie) => (
-                <option key={movie._id} value={movie._id}>
-                  {movie.title}
-                </option>
-              ))}
+              {movies.map((movie) => {
+                return list.type === "movie"
+                  ? movie.isSeries === false && (
+                      <option key={movie._id} value={movie._id}>
+                        {movie.title}
+                      </option>
+                    )
+                  : movie.isSeries === true && (
+                      <option key={movie._id} value={movie._id}>
+                        {movie.title}
+                      </option>
+                    );
+              })}
             </select>
           </div>
 

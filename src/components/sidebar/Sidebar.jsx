@@ -3,13 +3,14 @@ import {
   PermIdentity,
   PlayCircleOutline,
   List,
+  PlaylistAdd,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./sidebar.css";
 
 export default function Sidebar() {
-  let initial_state = new Array(13).fill(false);
+  let initial_state = new Array(5).fill(false);
 
   const [active, setActive] = useState(initial_state);
 
@@ -72,6 +73,33 @@ export default function Sidebar() {
               >
                 <List className="sidebarIcon" />
                 Lists
+              </li>
+            </Link>
+          </ul>
+        </div>
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">New Content</h3>
+          <ul className="sidebarList">
+            <Link to="/newMovie" className="link">
+              <li
+                className={
+                  active[4] ? "sidebarListItem active" : "sidebarListItem"
+                }
+                onClick={() => handleActive(4)}
+              >
+                <PlayCircleOutline className="sidebarIcon" />
+                New Movie
+              </li>
+            </Link>
+            <Link to="/newList" className="link">
+              <li
+                className={
+                  active[5] ? "sidebarListItem active" : "sidebarListItem"
+                }
+                onClick={() => handleActive(5)}
+              >
+                <PlaylistAdd className="sidebarIcon" />
+                New List
               </li>
             </Link>
           </ul>
