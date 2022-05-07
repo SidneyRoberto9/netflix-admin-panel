@@ -5,21 +5,30 @@ import {
   Redirect,
 } from "react-router-dom";
 import { AuthContext } from "context/authContext/AuthContext";
-import ProductList from "pages/productList/ProductList";
-import NewProduct from "pages/newProduct/NewProduct";
+
+import MovieList from "pages/movies/movieList/MovieList";
+import NewMovie from "pages/movies/newMovie/NewMovie";
+import Movie from "pages/movies/movie/Movie";
+
+import SerieList from "pages/series/serieList/SerieList";
+
+import Serie from "pages/series/serie/Serie";
+
+import ListList from "pages/lists/listList/listList";
+import NewList from "pages/lists/newList/newList";
+import List from "pages/lists/list/list";
+
+import UserList from "pages/users/userList/UserList";
+import NewUser from "pages/users/newUser/NewUser";
+import User from "pages/users/user/User";
+
 import Sidebar from "components/sidebar/Sidebar";
-import UserList from "pages/userList/UserList";
-import ListList from "pages/listList/listList";
 import Topbar from "components/topbar/Topbar";
-import NewUser from "pages/newUser/NewUser";
-import Product from "pages/product/Product";
-import NewList from "pages/newList/newList";
 import Login from "pages/login/Login";
 import Home from "pages/home/Home";
-import User from "pages/user/User";
-import List from "pages/list/list";
 import { useContext } from "react";
 import "App.css";
+import NewSerie from "pages/series/newSerie/NewSerie";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -56,13 +65,23 @@ function App() {
               </Route>
 
               <Route path="/movies">
-                <ProductList />
+                <MovieList />
               </Route>
-              <Route path="/movie/:productId">
-                <Product />
+              <Route path="/movies/:productId">
+                <Movie />
               </Route>
               <Route path="/newMovie">
-                <NewProduct />
+                <NewMovie />
+              </Route>
+
+              <Route path="/series">
+                <SerieList />
+              </Route>
+              <Route path="/series/:productId">
+                <Serie />
+              </Route>
+              <Route path="/newSerie">
+                <NewSerie />
               </Route>
 
               <Route path="/lists">

@@ -4,9 +4,9 @@ import { DeleteOutline } from "@material-ui/icons";
 import { DataGrid } from "@material-ui/data-grid";
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./productList.css";
+import "./movieList.css";
 
-export default function ProductList() {
+export default function MovieList() {
   const { movies, dispatch } = useContext(MovieContext);
 
   useEffect(() => {
@@ -36,14 +36,6 @@ export default function ProductList() {
     { field: "year", headerName: "Year", width: 120 },
     { field: "limit", headerName: "Limit", width: 120 },
     {
-      field: "isSeries",
-      headerName: "Type",
-      width: 130,
-      renderCell: (params) => {
-        return params.value ? "Serie" : "Movie";
-      },
-    },
-    {
       field: "action",
       headerName: "Action",
       width: 150,
@@ -51,7 +43,7 @@ export default function ProductList() {
         return (
           <>
             <Link
-              to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
+              to={{ pathname: "/movies/" + params.row._id, movie: params.row }}
             >
               <button className="productListEdit">Edit</button>
             </Link>

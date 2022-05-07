@@ -10,7 +10,7 @@ import { useState } from "react";
 import "./sidebar.css";
 
 export default function Sidebar() {
-  let initial_state = new Array(5).fill(false);
+  let initial_state = new Array(7).fill(false);
 
   const [active, setActive] = useState(initial_state);
 
@@ -64,12 +64,23 @@ export default function Sidebar() {
                 Movies
               </li>
             </Link>
-            <Link to="/lists" className="link">
+            <Link to="/series" className="link">
               <li
                 className={
                   active[3] ? "sidebarListItem active" : "sidebarListItem"
                 }
                 onClick={() => handleActive(3)}
+              >
+                <PlayCircleOutline className="sidebarIcon" />
+                Series
+              </li>
+            </Link>
+            <Link to="/lists" className="link">
+              <li
+                className={
+                  active[4] ? "sidebarListItem active" : "sidebarListItem"
+                }
+                onClick={() => handleActive(4)}
               >
                 <List className="sidebarIcon" />
                 Lists
@@ -83,20 +94,31 @@ export default function Sidebar() {
             <Link to="/newMovie" className="link">
               <li
                 className={
-                  active[4] ? "sidebarListItem active" : "sidebarListItem"
+                  active[5] ? "sidebarListItem active" : "sidebarListItem"
                 }
-                onClick={() => handleActive(4)}
+                onClick={() => handleActive(5)}
               >
                 <PlayCircleOutline className="sidebarIcon" />
                 New Movie
               </li>
             </Link>
+            <Link to="/newSerie" className="link">
+              <li
+                className={
+                  active[6] ? "sidebarListItem active" : "sidebarListItem"
+                }
+                onClick={() => handleActive(6)}
+              >
+                <PlayCircleOutline className="sidebarIcon" />
+                New Serie
+              </li>
+            </Link>
             <Link to="/newList" className="link">
               <li
                 className={
-                  active[5] ? "sidebarListItem active" : "sidebarListItem"
+                  active[7] ? "sidebarListItem active" : "sidebarListItem"
                 }
-                onClick={() => handleActive(5)}
+                onClick={() => handleActive(7)}
               >
                 <PlaylistAdd className="sidebarIcon" />
                 New List

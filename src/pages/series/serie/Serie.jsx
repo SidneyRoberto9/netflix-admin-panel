@@ -1,41 +1,41 @@
 import { Link, useLocation } from "react-router-dom";
 import { Publish } from "@material-ui/icons";
-import "./product.css";
+import "./serie.css";
 
-export default function Product() {
+export default function Serie() {
   const location = useLocation();
-  const movie = location.movie;
+  const serie = location.serie;
 
   return (
     <div className="product">
       <div className="productTitleContainer">
-        <h1 className="productTitle">Movie</h1>
-        <Link to="/newMovie">
+        <h1 className="productTitle">Serie</h1>
+        <Link to="/newserie">
           <button className="productAddButton">Create</button>
         </Link>
       </div>
       <div className="productTop">
         <div className="productTopRight">
           <div className="productInfoTop">
-            <img src={movie.img} alt="" className="productInfoImg" />
-            <span className="productName">{movie.title}</span>
+            <img src={serie.img} alt="" className="productInfoImg" />
+            <span className="productName">{serie.title}</span>
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
               <span className="productInfoKey">id:</span>
-              <span className="productInfoValue">{movie._id}</span>
+              <span className="productInfoValue">{serie._id}</span>
             </div>
             <div className="productInfoItem">
               <span className="productInfoKey">genre:</span>
-              <span className="productInfoValue">{movie.genre}</span>
+              <span className="productInfoValue">{serie.genre}</span>
             </div>
             <div className="productInfoItem">
               <span className="productInfoKey">year:</span>
-              <span className="productInfoValue">{movie.year}</span>
+              <span className="productInfoValue">{serie.year}</span>
             </div>
             <div className="productInfoItem">
               <span className="productInfoKey">limit:</span>
-              <span className="productInfoValue">{movie.limit}</span>
+              <span className="productInfoValue">{serie.limit}</span>
             </div>
           </div>
         </div>
@@ -43,22 +43,22 @@ export default function Product() {
       <div className="productBottom">
         <form className="productForm">
           <div className="productFormLeft">
-            <label>Movie Title</label>
-            <input type="text" placeholder={movie.title} />
+            <label>serie Title</label>
+            <input type="text" placeholder={serie.title} />
             <label>Year</label>
-            <input type="text" placeholder={movie.year} />
+            <input type="text" placeholder={serie.year} />
             <label>Genre</label>
-            <input type="text" placeholder={movie.genre} />
+            <input type="text" placeholder={serie.genre} />
             <label>Limit</label>
-            <input type="text" placeholder={movie.limit} />
+            <input type="text" placeholder={serie.limit} />
             <label>Trailer</label>
-            <input type="file" placeholder={movie.trailer} />
+            <input type="file" placeholder={serie.trailer} />
             <label>Video</label>
-            <input type="file" placeholder={movie.video} />
+            <input type="file" placeholder={serie.video} />
           </div>
           <div className="productFormRight">
             <div className="productUpload">
-              <img src={movie.img} alt="" className="productUploadImg" />
+              <img src={serie.img} alt="" className="productUploadImg" />
               <label>
                 <Publish />
               </label>
