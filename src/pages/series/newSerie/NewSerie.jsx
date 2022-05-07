@@ -63,6 +63,7 @@ export default function NewSerie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createSerie(serie, dispatch);
+    console.log("Series has be created");
   };
 
   useEffect(() => {

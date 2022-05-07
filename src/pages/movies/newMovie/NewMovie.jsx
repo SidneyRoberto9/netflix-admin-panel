@@ -57,6 +57,7 @@ export default function NewMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
+    console.log("Movie has be Created");
   };
 
   useEffect(() => {
