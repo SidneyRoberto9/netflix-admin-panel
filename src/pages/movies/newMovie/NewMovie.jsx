@@ -173,8 +173,8 @@ export default function NewMovie() {
         <button
           className="addProductButton"
           onClick={handleSubmit}
-          disabled={uploaded <= 5}
-          style={{ cursor: uploaded <= 5 ? "not-allowed" : "pointer" }}
+          disabled={uploaded <= 4}
+          style={{ cursor: uploaded <= 4 ? "not-allowed" : "pointer" }}
         >
           Create
         </button>
