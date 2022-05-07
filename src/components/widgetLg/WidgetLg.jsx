@@ -17,7 +17,7 @@ export default function WidgetLg() {
         <tbody>
           <tr className="widgetLgTr">
             <th className="widgetLgTh">Movie</th>
-            <th className="widgetLgTh">Date</th>
+            <th className="widgetLgTh">AddDate</th>
             <th className="widgetLgTh">Genre</th>
             <th className="widgetLgTh">Type</th>
           </tr>

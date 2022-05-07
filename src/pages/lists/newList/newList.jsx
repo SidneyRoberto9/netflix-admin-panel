@@ -76,12 +76,12 @@ export default function NewList() {
             >
               {movies.map((movie) => {
                 return list.type === "movie"
-                  ? movie.isSeries === false && (
+                  ? movie.type === "movie" && (
                       <option key={movie._id} value={movie._id}>
                         {movie.title}
                       </option>
                     )
-                  : movie.isSeries === true && (
+                  : movie.type === "serie" && (
                       <option key={movie._id} value={movie._id}>
                         {movie.title}
                       </option>
