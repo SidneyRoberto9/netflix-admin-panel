@@ -25,9 +25,7 @@ export default function NewMovie() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          if (progress === 100) {
-            setUploadedComplete(true);
-          }
+          progress === 100 && setUploadedComplete("test");
         },
         (err) => {
           console.log(err);
@@ -35,6 +33,7 @@ export default function NewMovie() {
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then((url) => {
             setMovie((prev) => {
+              uploadedComplete === "test" && setUploadedComplete(true);
               return { ...prev, [item.label]: url };
             });
           });
@@ -45,9 +44,7 @@ export default function NewMovie() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    if (img) {
-      upload([{ file: img, label: "img" }]);
-    }
+    upload([{ file: img, label: "img" }]);
   };
 
   const handleSubmit = (e) => {
@@ -153,8 +150,7 @@ export default function NewMovie() {
             <button
               className="addProductButton"
               onClick={handleSubmit}
-              disabled={uploadedComplete === true}
-              style={{ cursor: "pointer" }}
+              disabled={uploadedComplete !== true}
             >
               Create
             </button>
