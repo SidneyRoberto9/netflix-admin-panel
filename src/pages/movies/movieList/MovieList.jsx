@@ -3,7 +3,6 @@ import { MovieContext } from "context/movieContext";
 import { DeleteOutline } from "@material-ui/icons";
 import { DataGrid } from "@material-ui/data-grid";
 import { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import "./movieList.css";
 
 export default function MovieList() {
@@ -42,11 +41,6 @@ export default function MovieList() {
       renderCell: (params) => {
         return (
           <>
-            <Link
-              to={{ pathname: "/movies/" + params.row._id, movie: params.row }}
-            >
-              <button className="productListEdit">Edit</button>
-            </Link>
             <DeleteOutline
               className="productListDelete"
               onClick={() => handleDelete(params.row._id)}

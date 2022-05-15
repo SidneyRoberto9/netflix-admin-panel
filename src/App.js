@@ -8,7 +8,6 @@ import { AuthContext } from "context/authContext/AuthContext";
 
 import MovieList from "pages/movies/movieList/MovieList";
 import NewMovie from "pages/movies/newMovie/NewMovie";
-import Movie from "pages/movies/movie/Movie";
 
 import ListList from "pages/lists/listList/listList";
 import NewList from "pages/lists/newList/newList";
@@ -61,9 +60,6 @@ function App() {
 
               <Route path="/movies">
                 <MovieList />
-              </Route>
-              <Route path="/movies/:productId">
-                <Movie />
               </Route>
               <Route path="/newMovie">
                 <NewMovie />
