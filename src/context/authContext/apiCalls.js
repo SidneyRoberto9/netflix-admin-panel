@@ -5,7 +5,9 @@ export const login = async (user, dispatch) => {
   dispatch(loginStart());
   try {
     const res = await api.post("auth/login", user);
-    res.data.isAdmin && dispatch(loginSuccess(res.data));
+    res.data.isAdmin
+      ? dispatch(loginSuccess(res.data))
+      : dispatch(loginFailure());
   } catch (error) {
     dispatch(loginFailure());
   }
