@@ -11,6 +11,7 @@ export default function NewMovie() {
   const [imgSm, setImgSm] = useState(null);
   const [trailer, setTrailer] = useState(null);
   const [uploaded, setUploaded] = useState(0);
+  const [uploadedComplete, setUploadedComplete] = useState(null);
 
   const { dispatch } = useContext(MovieContext);
 
@@ -29,6 +30,9 @@ export default function NewMovie() {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done.");
+          if (progress === 100) {
+            setUploadedComplete(true);
+          }
         },
         (err) => {
           console.log(err);
@@ -46,12 +50,14 @@ export default function NewMovie() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    upload([
-      { file: img, label: "img" },
-      { file: imgTitle, label: "imgTitle" },
-      { file: imgSm, label: "imgSm" },
-      { file: trailer, label: "trailer" },
-    ]);
+    if (img && imgTitle && imgSm && trailer) {
+      upload([
+        { file: img, label: "img" },
+        { file: imgTitle, label: "imgTitle" },
+        { file: imgSm, label: "imgSm" },
+        { file: trailer, label: "trailer" },
+      ]);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -93,6 +99,15 @@ export default function NewMovie() {
             id="imgSm"
             name="imgSm"
             onChange={(e) => setImgSm(e.target.files[0])}
+          />
+        </div>
+
+        <div className="addProductItem">
+          <label>Trailer</label>
+          <input
+            type="file"
+            name="trailer"
+            onChange={(e) => setTrailer(e.target.files[0])}
           />
         </div>
         <div className="addProductItem">
@@ -149,36 +164,37 @@ export default function NewMovie() {
             onChange={handleChange}
           />
         </div>
+
         <div className="addProductItem">
-          <label>Trailer</label>
-          <input
-            type="file"
-            name="trailer"
-            onChange={(e) => setTrailer(e.target.files[0])}
-          />
+          <label>Type</label>
+          <select name="type" onChange={handleChange} defaultValue="type">
+            <option disabled={true} value="type">
+              Select type
+            </option>
+            <option value="movie">Movie</option>
+            <option value="serie">Serie</option>
+          </select>
         </div>
         <div className="addProductItem">
-          <label>Video</label>
-          <input
-            type="text"
-            placeholder="Video URL"
-            name="video"
-            onChange={handleChange}
-          />
+          <div className="addButtonItem">
+            <button className="addProductButton" onClick={handleUpload}>
+              Upload
+            </button>
+
+            <button
+              className="addProductButton"
+              onClick={handleSubmit}
+              disabled={uploaded <= 4 && uploadedComplete === true}
+              style={{ cursor: uploaded <= 4 ? "not-allowed" : "pointer" }}
+            >
+              Create
+            </button>
+
+            <span className="up">
+              {uploadedComplete === true ? "Upload Complete" : ""}
+            </span>
+          </div>
         </div>
-
-        <button className="addProductButton" onClick={handleUpload}>
-          Upload
-        </button>
-
-        <button
-          className="addProductButton"
-          onClick={handleSubmit}
-          disabled={uploaded <= 4}
-          style={{ cursor: uploaded <= 4 ? "not-allowed" : "pointer" }}
-        >
-          Create
-        </button>
       </form>
     </div>
   );

@@ -64,23 +64,13 @@ export default function Sidebar() {
                 Movies
               </li>
             </Link>
-            <Link to="/series" className="link">
+
+            <Link to="/lists" className="link">
               <li
                 className={
                   active[3] ? "sidebarListItem active" : "sidebarListItem"
                 }
                 onClick={() => handleActive(3)}
-              >
-                <PlayCircleOutline className="sidebarIcon" />
-                Series
-              </li>
-            </Link>
-            <Link to="/lists" className="link">
-              <li
-                className={
-                  active[4] ? "sidebarListItem active" : "sidebarListItem"
-                }
-                onClick={() => handleActive(4)}
               >
                 <List className="sidebarIcon" />
                 Lists
@@ -94,31 +84,21 @@ export default function Sidebar() {
             <Link to="/newMovie" className="link">
               <li
                 className={
-                  active[5] ? "sidebarListItem active" : "sidebarListItem"
+                  active[4] ? "sidebarListItem active" : "sidebarListItem"
                 }
-                onClick={() => handleActive(5)}
+                onClick={() => handleActive(4)}
               >
                 <PlayCircleOutline className="sidebarIcon" />
                 New Movie
               </li>
             </Link>
-            <Link to="/newSerie" className="link">
-              <li
-                className={
-                  active[6] ? "sidebarListItem active" : "sidebarListItem"
-                }
-                onClick={() => handleActive(6)}
-              >
-                <PlayCircleOutline className="sidebarIcon" />
-                New Serie
-              </li>
-            </Link>
+
             <Link to="/newList" className="link">
               <li
                 className={
-                  active[7] ? "sidebarListItem active" : "sidebarListItem"
+                  active[5] ? "sidebarListItem active" : "sidebarListItem"
                 }
-                onClick={() => handleActive(7)}
+                onClick={() => handleActive(5)}
               >
                 <PlaylistAdd className="sidebarIcon" />
                 New List

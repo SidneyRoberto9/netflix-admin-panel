@@ -43,8 +43,20 @@
   align-self: center;
 }
 
+.addButtonItem {
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding-top: 20px;
+}
+
 button[disabled] {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+}
+
+.up {
+  margin-left: 25px;
 }

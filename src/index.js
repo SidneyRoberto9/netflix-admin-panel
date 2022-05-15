@@ -1,5 +1,4 @@
 import { MovieContextProvider } from "context/movieContext";
-import { SerieContextProvider } from "context/serieContext";
 import { AuthContextProvider } from "context/authContext";
 import { ListContextProvider } from "context/listContext";
 import { UserContextProvider } from "context/userContext";
@@ -11,13 +10,11 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
       <MovieContextProvider>
-        <SerieContextProvider>
-          <ListContextProvider>
-            <UserContextProvider>
-              <App />
-            </UserContextProvider>
-          </ListContextProvider>
-        </SerieContextProvider>
+        <ListContextProvider>
+          <UserContextProvider>
+            <App />
+          </UserContextProvider>
+        </ListContextProvider>
       </MovieContextProvider>
     </AuthContextProvider>
   </React.StrictMode>,

@@ -53,8 +53,6 @@ export default function Movie() {
             <input type="text" placeholder={movie.limit} />
             <label>Trailer</label>
             <input type="file" placeholder={movie.trailer} />
-            <label>Video</label>
-            <input type="file" placeholder={movie.video} />
           </div>
           <div className="productFormRight">
             <div className="productUpload">
