@@ -1,13 +1,12 @@
 import { createMovie } from "context/movieContext/apiCalls";
 import { MovieContext } from "context/movieContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import storage from "../../../firebase";
 import "./newMovie.css";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
   const [img, setImg] = useState(null);
-  const [uploaded, setUploaded] = useState(0);
   const [uploadedComplete, setUploadedComplete] = useState(null);
 
   const { dispatch } = useContext(MovieContext);
@@ -26,7 +25,6 @@ export default function NewMovie() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done.");
           if (progress === 100) {
             setUploadedComplete(true);
           }
@@ -57,10 +55,6 @@ export default function NewMovie() {
     createMovie(movie, dispatch);
     console.log("Movie has be Created");
   };
-
-  useEffect(() => {
-    setUploaded((prev) => prev + 1);
-  }, [img]);
 
   return (
     <div className="newProduct">
@@ -159,8 +153,8 @@ export default function NewMovie() {
             <button
               className="addProductButton"
               onClick={handleSubmit}
-              disabled={uploaded <= 1 && uploadedComplete === true}
-              style={{ cursor: uploaded <= 1 ? "not-allowed" : "pointer" }}
+              disabled={uploadedComplete === true}
+              style={{ cursor: "pointer" }}
             >
               Create
             </button>
