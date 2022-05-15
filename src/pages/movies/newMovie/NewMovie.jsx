@@ -7,9 +7,6 @@ import "./newMovie.css";
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
   const [img, setImg] = useState(null);
-  const [imgTitle, setImgTitle] = useState(null);
-  const [imgSm, setImgSm] = useState(null);
-  const [trailer, setTrailer] = useState(null);
   const [uploaded, setUploaded] = useState(0);
   const [uploadedComplete, setUploadedComplete] = useState(null);
 
@@ -50,13 +47,8 @@ export default function NewMovie() {
 
   const handleUpload = (e) => {
     e.preventDefault();
-    if (img && imgTitle && imgSm && trailer) {
-      upload([
-        { file: img, label: "img" },
-        { file: imgTitle, label: "imgTitle" },
-        { file: imgSm, label: "imgSm" },
-        { file: trailer, label: "trailer" },
-      ]);
+    if (img) {
+      upload([{ file: img, label: "img" }]);
     }
   };
 
@@ -68,7 +60,7 @@ export default function NewMovie() {
 
   useEffect(() => {
     setUploaded((prev) => prev + 1);
-  }, [img, imgTitle, imgSm, trailer]);
+  }, [img]);
 
   return (
     <div className="newProduct">
@@ -83,31 +75,14 @@ export default function NewMovie() {
             onChange={(e) => setImg(e.target.files[0])}
           />
         </div>
-        <div className="addProductItem">
-          <label>Title image</label>
-          <input
-            type="file"
-            id="imgTitle"
-            name="imgTitle"
-            onChange={(e) => setImgTitle(e.target.files[0])}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Thumbnail image</label>
-          <input
-            type="file"
-            id="imgSm"
-            name="imgSm"
-            onChange={(e) => setImgSm(e.target.files[0])}
-          />
-        </div>
 
         <div className="addProductItem">
           <label>Trailer</label>
           <input
-            type="file"
+            type="text"
+            placeholder="trailer"
             name="trailer"
-            onChange={(e) => setTrailer(e.target.files[0])}
+            onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
@@ -184,8 +159,8 @@ export default function NewMovie() {
             <button
               className="addProductButton"
               onClick={handleSubmit}
-              disabled={uploaded <= 4 && uploadedComplete === true}
-              style={{ cursor: uploaded <= 4 ? "not-allowed" : "pointer" }}
+              disabled={uploaded <= 1 && uploadedComplete === true}
+              style={{ cursor: uploaded <= 1 ? "not-allowed" : "pointer" }}
             >
               Create
             </button>
