@@ -25,7 +25,7 @@ export default function NewMovie() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          progress === 100 && setUploadedComplete(true);
+          console.log("Upload is " + progress + "% done");
         },
         (err) => {
           console.log(err);
@@ -44,6 +44,7 @@ export default function NewMovie() {
   const handleUpload = (e) => {
     e.preventDefault();
     upload([{ file: img, label: "img" }]);
+    setUploadedComplete(true);
   };
 
   const handleSubmit = (e) => {
