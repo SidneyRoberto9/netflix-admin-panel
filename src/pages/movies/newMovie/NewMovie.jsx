@@ -25,7 +25,7 @@ export default function NewMovie() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          progress === 100 && setUploadedComplete("test");
+          progress === 100 && setUploadedComplete(true);
         },
         (err) => {
           console.log(err);
@@ -33,7 +33,6 @@ export default function NewMovie() {
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then((url) => {
             setMovie((prev) => {
-              uploadedComplete === "test" && setUploadedComplete(true);
               return { ...prev, [item.label]: url };
             });
           });
