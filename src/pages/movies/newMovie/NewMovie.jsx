@@ -12,8 +12,18 @@ export default function NewMovie() {
   const { dispatch } = useContext(MovieContext);
 
   const handleChange = (e) => {
+    console.log(movie);
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
+  };
+
+  const handleClear = (e) => {
+    e.preventDefault();
+    setMovie(null);
+    Array.from(document.querySelectorAll("input")).forEach(
+      (input) => (input.value = "")
+    );
+    document.getElementById("type").value = "type";
   };
 
   const upload = (items) => {
@@ -133,7 +143,12 @@ export default function NewMovie() {
 
         <div className="addProductItem">
           <label>Type</label>
-          <select name="type" onChange={handleChange} defaultValue="type">
+          <select
+            id="type"
+            name="type"
+            onChange={handleChange}
+            defaultValue="type"
+          >
             <option disabled={true} value="type">
               Select type
             </option>
@@ -153,6 +168,10 @@ export default function NewMovie() {
               disabled={uploadedComplete !== true}
             >
               Create
+            </button>
+
+            <button className="addProductButton" onClick={handleClear}>
+              Limpar
             </button>
 
             <span className="up">
