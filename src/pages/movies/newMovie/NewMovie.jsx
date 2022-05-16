@@ -35,6 +35,7 @@ export default function NewMovie() {
             setMovie((prev) => {
               return { ...prev, [item.label]: url };
             });
+            setUploadedComplete(true);
           });
         }
       );
@@ -44,7 +45,6 @@ export default function NewMovie() {
   const handleUpload = (e) => {
     e.preventDefault();
     upload([{ file: img, label: "img" }]);
-    setUploadedComplete(true);
   };
 
   const handleSubmit = (e) => {
