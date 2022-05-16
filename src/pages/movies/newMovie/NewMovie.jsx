@@ -19,6 +19,7 @@ export default function NewMovie() {
   const handleClear = (e) => {
     e.preventDefault();
     setMovie(null);
+    setUploadedComplete(false);
     Array.from(document.querySelectorAll("input")).forEach(
       (input) => (input.value = "")
     );
