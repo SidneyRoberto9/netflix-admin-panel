@@ -12,7 +12,6 @@ export default function NewMovie() {
   const { dispatch } = useContext(MovieContext);
 
   const handleChange = (e) => {
-    console.log(movie);
     const value = e.target.value;
     setMovie({ ...movie, [e.target.name]: value });
   };
