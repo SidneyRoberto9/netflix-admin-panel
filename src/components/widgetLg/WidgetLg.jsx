@@ -35,9 +35,7 @@ export default function WidgetLg() {
                 }).format(new Date(movie.createdAt))}
               </td>
               <td className="widgetLgAmount">{movie.genre}</td>
-              <td className="widgetLgStatus">
-                {movie.isSeries ? "Series" : "Movie"}
-              </td>
+              <td className="widgetLgStatus">{movie.type}</td>
             </tr>
           ))}
         </tbody>
