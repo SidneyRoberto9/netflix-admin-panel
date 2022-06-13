@@ -1,16 +1,20 @@
-import { User } from "models/user.model";
-import { api } from "../../services/api";
+import { User } from 'models/user.model';
+
+import { api } from '../../services/api';
 import {
-  getUsersStart,
-  getUsersSuccess,
-  getUsersFailure,
+  changeAdminUserFailure,
+  changeAdminUserStart,
+  changeAdminUserSuccess,
+  deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
-  deleteUserFailure,
+  getUsersFailure,
+  getUsersStart,
+  getUsersSuccess,
+  updateUserFailure,
   updateUserStart,
   updateUserSuccess,
-  updateUserFailure,
-} from "./UserActions";
+} from './UserActions';
 
 export const getUsers = async (dispatch: {
   (value: any): void;
@@ -18,9 +22,9 @@ export const getUsers = async (dispatch: {
 }) => {
   dispatch(getUsersStart());
   try {
-    const res = await api.get("/users", {
+    const res = await api.get('/users', {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
       },
     });
     dispatch(getUsersSuccess(res.data));
@@ -38,9 +42,9 @@ export const deleteUser = async (
 ) => {
   dispatch(deleteUserStart());
   try {
-    await api.delete("/users/" + id, {
+    await api.delete('/users/' + id, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
       },
     });
     dispatch(deleteUserSuccess(id));
@@ -49,19 +53,40 @@ export const deleteUser = async (
   }
 };
 
-export const updateMovie = async (
+export const updateUser = async (
   user: User,
   dispatch: (arg0: { type: string; payload?: any }) => void
 ) => {
   dispatch(updateUserStart());
   try {
-    const res = await api.put("/users/" + user._id, user, {
+    const res = await api.put('/users/' + user._id, user, {
       headers: {
-        token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+        token: 'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
       },
     });
     dispatch(updateUserSuccess(res.data));
   } catch (error) {
     dispatch(updateUserFailure());
+  }
+};
+
+export const changeAdminUser = async (
+  user: User,
+  dispatch: (arg0: { type: string; payload?: any }) => void
+) => {
+  dispatch(changeAdminUserStart());
+  try {
+    const res = await api.get(
+      `/users/${user._id}/${user.isAdmin ? 'false' : 'true'}`,
+      {
+        headers: {
+          token:
+            'Bearer ' + JSON.parse(localStorage.getItem('user')).accessToken,
+        },
+      }
+    );
+    dispatch(changeAdminUserSuccess(res.data));
+  } catch (error) {
+    dispatch(changeAdminUserFailure());
   }
 };
