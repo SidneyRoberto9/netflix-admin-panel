@@ -49,4 +49,4 @@ yarn ou npm i
 yarn start ou npm start
 ```
 
-[⬆ Voltar ao topo](#Netflix-Admin-Painel)<br
+
